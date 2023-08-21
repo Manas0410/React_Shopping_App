@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import CategoryName from "./CATEGORY/CategoryNames";
 import { useDispatch, useSelector } from "react-redux";
 import { storeCart, storeData } from "../REDUUX SETUP/slice";
+import { Link } from "react-router-dom";
 
 const InfiniteScrollP = () => {
   const bottom = useRef(null);
@@ -51,7 +52,9 @@ const InfiniteScrollP = () => {
               const { id, title, description } = item;
               return (
                 <li style={box} key={id}>
-                  <p>{title} </p>
+                  <Link to={`/${id}`}>
+                    <p>{title} </p>
+                  </Link>
                   <p>{description} </p>
                   <button onClick={() => dispatch(storeCart(item))}>
                     {id in cart ? <p>ADDED TO CART</p> : <p>ADD TO CART</p>}

@@ -12,6 +12,9 @@ const CategoryName = () => {
 
   return (
     <div style={list}>
+      <Link to={`/cart`}>
+        <button>SHOW CART</button>
+      </Link>
       {Category.map((item, i) => {
         return (
           <Link key={i} to={`/category?query=${item}`}>
@@ -19,9 +22,6 @@ const CategoryName = () => {
           </Link>
         );
       })}
-      <Link to={`/cart`}>
-        <button>SHOW CART</button>
-      </Link>
     </div>
   );
 };

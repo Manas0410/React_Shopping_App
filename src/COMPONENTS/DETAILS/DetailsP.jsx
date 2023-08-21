@@ -23,6 +23,7 @@ const DetailsP = () => {
     thumbnail,
     images,
   } = detail;
+  console.log(images);
   return (
     <div>
       <div>{title}</div>
@@ -34,7 +35,11 @@ const DetailsP = () => {
       <div>{brand}</div>
       <div>{category}</div>
       <img srcSet={thumbnail} alt="" />
-      <div>{}</div>
+      <div>
+        {images.map((item, i) => {
+          return <img key={i} srcSet={item} />;
+        })}
+      </div>
     </div>
   );
 };

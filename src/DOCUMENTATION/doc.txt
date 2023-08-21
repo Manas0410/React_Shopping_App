@@ -1,22 +1,23 @@
 things i m gonna use    =>
 __________________________
-REDUX=>
+✨ REDUX=>
 ✨ AXIOS=>for api calling
 ✨ ERROR BOUNDARY=> (back to home)                                                           
 ✨ CLASS COMPONET=> 4 error BOUNDARY
 ✨ FUNCTION COMPONET =>
 ✨ REACT ROUTER DOM=>
 ✨ USEPARAMS =>
+✨ USEEFFECT =>
+✨ USEMEMO =>
+✨ pagination =>
+✨ infinite scroll=>
+
+
+
+
+thing i hv not used=>
+__________________________
 HOC => for handling loading and spinner
-USEEFFECT =>
-USEMEMO =>
- pagination =>
-✨infinite scroll=>
-
-
-
-
-
 context api
 usecallback 
 react.memo
@@ -25,5 +26,7 @@ pges=>          (without css)
 __________________________
 ✨main
 ✨details
-category wise product page
-cart page
+✨category wise product page
+✨cart page
+
+not done => search product page
