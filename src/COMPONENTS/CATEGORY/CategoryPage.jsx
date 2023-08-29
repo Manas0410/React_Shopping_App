@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import "../../ExternalCssFiles/Css4Category.css";
 
 const CategoryPage = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const CategoryPage = () => {
   }, [queryValue]);
   // console.log(products);
   const selectPage = (selectedPage) => {
-    if (selectedPage >= 1 && selectedPage <= products.length / 2)
+    if (selectedPage >= 1 && selectedPage <= Math.ceil(products.length / 2))
       setPage(selectedPage);
   };
 

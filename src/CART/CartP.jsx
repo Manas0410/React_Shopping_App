@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addQuantity, minusQuantity, removeItem } from "../REDUUX SETUP/slice";
+import "./CartP.css"; // Import your CSS file
+
 const Cart = () => {
   const cartt = useSelector((state) => state.storeSlice.cart);
   console.log(cartt);
@@ -17,39 +19,31 @@ const Cart = () => {
   }, [cartt]);
 
   return (
-    <div>
+    <div className="cart-container">
       <Link to={`/`}>
-        <button>HOME</button>
+        <button className="home-button">HOME</button>
       </Link>
-      <div style={priceSt}>TOTAL PRICE : {totalPrice}</div>
-      <ul style={uls}>
-        {cartt.map((item) => (
-          <li key={item.id} style={priceSt}>
-            {item.title}
-            <p>
-              QUANTITY:{" "}
-              <button onClick={() => dispatch(addQuantity(item))}>+</button>{" "}
-              {item.quantity}{" "}
-              <button onClick={() => dispatch(minusQuantity(item))}>-</button>
-              <button onClick={() => dispatch(removeItem(item.id))}>✂</button>
-            </p>
-            <p>price:{item.price} </p>
-          </li>
-        ))}
+      <div className="total-price">TOTAL PRICE: ${totalPrice}</div>
+      <ul className="cart-list">
+        {cartt.map((item) => {
+          const { quantity = 1 } = item;
+
+          return (
+            <li key={item.id} className="cart-item">
+              <div className="item-title">{item.title}</div>
+              <div className="item-quantity">
+                <button onClick={() => dispatch(addQuantity(item))}>+</button>{" "}
+                {quantity}{" "}
+                <button onClick={() => dispatch(minusQuantity(item))}>-</button>
+                <button onClick={() => dispatch(removeItem(item.id))}>✂</button>
+              </div>
+              <div className="item-price">Price: ${item.price}</div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
-};
-const priceSt = {
-  border: "1px solid black",
-  borderRadius: "8px",
-  padding: "12px",
-  width: "100%",
-};
-const uls = {
-  display: "flex",
-  gap: "18px",
-  flexWrap: "wrap",
 };
 
 export default Cart;

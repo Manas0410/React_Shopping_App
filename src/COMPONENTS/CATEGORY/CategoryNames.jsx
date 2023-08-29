@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "../../ExternalCssFiles/Css4Category.css";
 
 const CategoryName = () => {
   const [Category, setCategory] = useState([]);
@@ -11,13 +12,17 @@ const CategoryName = () => {
   });
 
   return (
-    <div style={list}>
-      <Link to={`/cart`}>
-        <button>SHOW CART</button>
+    <div className="categoryList">
+      <Link to={`/cart`} style={{ marginLeft: "35px" }}>
+        <button className="button">SHOW CART</button>
       </Link>
       {Category.map((item, i) => {
         return (
-          <Link key={i} to={`/category?query=${item}`}>
+          <Link
+            key={i}
+            to={`/category?query=${item}`}
+            className="category-link"
+          >
             {item}
           </Link>
         );
@@ -25,8 +30,5 @@ const CategoryName = () => {
     </div>
   );
 };
-const list = {
-  display: "flex",
-  flexDirection: "column",
-};
+
 export default CategoryName;

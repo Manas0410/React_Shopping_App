@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -16,7 +17,14 @@ export default class ErrorBoundary extends React.Component {
   }
   render() {
     if (this.state.haserror) {
-      return <p> MANAS found the error</p>;
+      return (
+        <div>
+          <h1>OOps!!! some error occured</h1>
+          <Link to={`/`}>
+            <button>HOME</button>{" "}
+          </Link>
+        </div>
+      );
     } else {
       // eslint-disable-next-line react/prop-types
       return this.props.children;
