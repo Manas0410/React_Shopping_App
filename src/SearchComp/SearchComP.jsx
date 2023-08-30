@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { storeCart } from "../REDUUX SETUP/slice";
 import { useDispatch, useSelector } from "react-redux";
-import "./SearchComP.css";
+import "./SearchComp.css";
 
 const SearchComP = () => {
   const location = useLocation();
