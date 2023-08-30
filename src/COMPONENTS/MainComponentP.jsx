@@ -66,9 +66,9 @@ const InfiniteScrollP = () => {
           <div className="productStyle">
             <ul style={uls}>
               {apiData.map((item) => {
-                const { id, title, description } = item;
+                const { id, title, description, price } = item;
                 return (
-                  <li style={box} key={id}>
+                  <li style={box} className="oneCard" key={id}>
                     <div>
                       <img
                         src={item.thumbnail}
@@ -77,10 +77,11 @@ const InfiniteScrollP = () => {
                       />
                     </div>
                     <div>
-                      <Link to={`/${id}`}>
+                      <Link to={`/${id}`} className="titleLink">
                         <p>{title} </p>
                       </Link>
                       <p>{description} </p>
+                      <p style={{ color: "orange" }}>PRICE:{price}$</p>
                       <button
                         className="button"
                         style={{ padding: "0px 24px" }}

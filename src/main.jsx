@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import { store } from "./REDUUX SETUP/store";
 import CategoryPage from "./COMPONENTS/CATEGORY/CategoryPage";
 import CartP from "./CART/CartP";
-import Test1 from "./Test/Test1";
 import SearchComP from "./SearchComp/SearchComP";
 
 const router = createBrowserRouter([
@@ -15,10 +14,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <MainComponentP />,
   },
-  {
-    path: "/test",
-    element: <Test1 />,
-  },
+
   {
     path: "/:id",
     element: <DetailsP />,

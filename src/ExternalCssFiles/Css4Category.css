@@ -121,3 +121,19 @@ width: 54%;}
 .searchButton:hover {
     background-color: #e63900;
 }
+.oneCard:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+/* Styling for the link */
+.titleLink {
+    color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+        transition: border-bottom 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.titleLink:hover {
+    border-bottom: 2px solid #3498db;}
