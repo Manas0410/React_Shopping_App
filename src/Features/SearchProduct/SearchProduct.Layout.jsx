@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { storeCart } from "../REDUUX SETUP/slice";
 import { useDispatch, useSelector } from "react-redux";
-import "./SearchComp.css";
+import { storeCart } from "../Cart/Cart.Slice";
+import "./SearchProduct.Style.css";
 
 const SearchComP = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.storeSlice.forAddedToCart);
+  const cart = useSelector((state) => state.cartReducer.forAddedToCart);
 
   const queryParams = new URLSearchParams(location.search);
   const queryValue = queryParams.get("q");

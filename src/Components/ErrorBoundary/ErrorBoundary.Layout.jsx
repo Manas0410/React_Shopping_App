@@ -5,29 +5,32 @@ export default class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      haserror: false,
+      hasError: false,
       error: undefined,
     };
   }
   static getDerivedStateFromError(error) {
-    return { haserror: true, error: error };
+    return { hasError: true, error };
   }
+
   componentDidCatch(error) {
     console.log(error);
   }
+
   render() {
-    if (this.state.haserror) {
-      return (
-        <div>
-          <h1>OOps!!! some error occured</h1>
-          <Link to={`/`}>
-            <button>HOME</button>{" "}
-          </Link>
-        </div>
-      );
-    } else {
+    const { hasError } = this.state;
+    if (!hasError) {
       // eslint-disable-next-line react/prop-types
       return this.props.children;
     }
+
+    return (
+      <div>
+        <h1>OOps!!! some error occured</h1>
+        <Link to={`/`}>
+          <button>Go back to Home</button>{" "}
+        </Link>
+      </div>
+    );
   }
 }

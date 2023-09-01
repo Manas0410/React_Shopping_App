@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import "../../ExternalCssFiles/Css4Category.css";
 
-const CategoryPage = () => {
+const ProductsByCategory = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const queryValue = queryParams.get("query");
@@ -96,4 +95,4 @@ const CategoryPage = () => {
   );
 };
 
-export default CategoryPage;
+export default ProductsByCategory;

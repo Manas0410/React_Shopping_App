@@ -1,15 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../ExternalCssFiles/Css4Category.css";
 
 const CategoryName = () => {
   const [Category, setCategory] = useState([]);
+
   useEffect(() => {
     axios
       .get("https://dummyjson.com/products/categories")
       .then((response) => setCategory(response.data));
-  });
+  }, []);
 
   return (
     <div className="categoryList">

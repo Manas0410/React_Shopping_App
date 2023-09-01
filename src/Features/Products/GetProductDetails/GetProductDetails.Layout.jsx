@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./DetailsP.css"; // Make sure to import your CSS file
+import "./GetProductDetails.Style.css";
 
 const DetailsP = () => {
   const { id } = useParams();

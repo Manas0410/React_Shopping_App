@@ -1,22 +1,21 @@
 import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addQuantity, minusQuantity, removeItem } from "../REDUUX SETUP/slice";
-import "./CartP.css"; // Import your CSS file
+import { addQuantity, minusQuantity, removeItem } from "./Cart.Slice";
+import "./Cart.Style.css";
 
 const Cart = () => {
-  const cartt = useSelector((state) => state.storeSlice.cart);
-  console.log(cartt);
+  const cartList = useSelector((state) => state.cartReducer.cart);
   const dispatch = useDispatch();
 
   const totalPrice = useMemo(() => {
     let values = 0;
-    cartt.map((items) => {
+    cartList.map((items) => {
       const { quantity = 1, price } = items;
       values += price * quantity;
     });
     return values.toFixed(2);
-  }, [cartt]);
+  }, [cartList]);
 
   return (
     <div className="cart-container">
@@ -25,7 +24,7 @@ const Cart = () => {
       </Link>
       <div className="total-price">TOTAL PRICE: ${totalPrice}</div>
       <ul className="cart-list">
-        {cartt.map((item) => {
+        {cartList.map((item) => {
           const { quantity = 1 } = item;
 
           return (
