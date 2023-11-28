@@ -1,0 +1,21 @@
+.signhd {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 400px;
+}
+.signContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signBg {
+  background-color: #007bff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body {
+  margin: 0;
+}
