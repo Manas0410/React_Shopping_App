@@ -5,7 +5,15 @@ import { useState } from "react";
 const EditProd = ({ data, setAdminEditFlag }) => {
   const [editData, setEditData] = useState({ ...data });
   const onProdEdit = async () => {
-    await axios.put(`https://dummyjson.com/products/${data.id}`, editData);
+    const res = await axios.put(
+      `https://dummyjson.com/products/${data.id}`,
+      editData
+    );
+    if (res.status != 200) {
+      alert(
+        "i hv implemented the logic for edit and delete in code but the public api is not allowing for put and delete req"
+      );
+    }
     setAdminEditFlag(false);
   };
   const onInpChang = (e) => {
@@ -18,7 +26,7 @@ const EditProd = ({ data, setAdminEditFlag }) => {
     });
   };
   return (
-    <div style={{ backgroundColor: "red" }}>
+    <div style={{ border: "2px solid black", padding: "9px", margin: "5px" }}>
       <div>
         Title:
         <input
@@ -48,6 +56,9 @@ const EditProd = ({ data, setAdminEditFlag }) => {
       </div>
       <button className="button" onClick={onProdEdit}>
         SAVE
+      </button>
+      <button className="button" onClick={() => setAdminEditFlag(false)}>
+        CANCEL
       </button>
     </div>
   );

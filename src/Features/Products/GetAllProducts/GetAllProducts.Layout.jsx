@@ -4,7 +4,6 @@ import CategoryName from "../Views/CategoryNames";
 import { useDispatch, useSelector } from "react-redux";
 import { storeCart, storeData } from "../../Cart/Cart.Slice";
 import { Link } from "react-router-dom";
-import EditProd from "./AdminFeatures/EditProd";
 
 const MyProducts = () => {
   const bottom = useRef(null);
@@ -35,7 +34,6 @@ const MyProducts = () => {
   console.log({ page });
   //admin features
   const adminFlag = useSelector((state) => state.admin);
-  const [adminEdit, setAdminEditFlag] = useState(false);
   console.log("admin", adminFlag);
 
   useEffect(() => {
@@ -63,7 +61,12 @@ const MyProducts = () => {
           </Link>
         </div>
       </div>
-
+      {adminFlag && (
+        <p style={{ textAlign: "center", color: "tomato" }}>
+          Hii Admin !! You can edit or delete the products by clicking on the
+          title of that project
+        </p>
+      )}
       <div style={{ display: "flex", flexDirection: "row" }}>
         <CategoryName />
         {isLoading && <div>LOADING...</div>}
@@ -94,21 +97,6 @@ const MyProducts = () => {
                       {id in cart ? <p>ADDED TO CART</p> : <p>ADD TO CART</p>}
                       {/* {cart?.id ? <p>ADDED TO CART</p> : <p>ADD TO CART</p>} */}
                     </button>
-                    {/* admin */}
-                    {adminFlag && (
-                      <button
-                        className="button"
-                        onClick={() => setAdminEditFlag(true)}
-                      >
-                        Edit
-                      </button>
-                    )}
-                    {adminEdit && (
-                      <EditProd
-                        data={item}
-                        setAdminEditFlag={setAdminEditFlag}
-                      />
-                    )}
                   </div>
                 </li>
               );
